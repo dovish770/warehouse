@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="home-container">
+        <form id="form">
+            <input type="text" placeholder="serial Number">
+            <input type="text" placeholder="model">
+            <input type="number" placeholder="battery Level">
+            <input type="text" placeholder="image Url">
+            <input type="text" placeholder="color">
+            <select id="status">
+                <option value="available">available</option>
+                <option value="inRepair">in Repair</option>
+                <option value="unavailable">unavailable</option>
+            </select>
+            <input type="submit" value="add scooter">
+        </form>
+
+        <div id="search-options">
+            <form id="filter-form" class="search-forms">
+                <input type="submit" id="filter" value="Filter By">
+                <input type="text" id="filter-input">
+                <select id="filter-by">
+                    <option value="model">Model</option>
+                    <option value="battery">Battery</option>
+                </select>
+            </form>
+
+                <form id="sort-form" class="search-forms">
+                    <input type="submit" id="sort" value="Sort By">
+                    <select id="sort-by">
+                        <option value="model">Model</option>
+                        <option value="battery">Battery</option>
+                        <option value="serialNumber">Serial Number</option>
+                    </select>
+                </form>
+
+            <button id="reset-search">Reset search Options</button>
+        </div>
+        
+        <table>
+            <tr id="header-table">
+                <th>Serial Number</th>
+                <th>Model</th>
+                <th>Battery Level</th>
+                <th>Image Url</th>
+                <th>Color</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+    </div>
+    <form class="hidden Edit">
+        <input type="text" id="serial-number-edit" placeholder="serial Number">
+        <input type="text" id="model-edit" placeholder="model">
+        <input type="number" id="battery-level-edit" placeholder="battery Level">
+        <input type="text" id="image-url-edit" placeholder="image Url">
+        <input type="text" id="color-edit" placeholder="color">
+        <select id="status-edit">
+            <option value="available">available</option>
+            <option value="inRepair">in Repair</option>
+            <option value="unavailable">unavailable</option>
+        </select>
+        <input type="submit" value="Save Changes" id="change">
+        <input type="submit" value="Cancel" id="cancel">
+    </form>
+
+    <script src="javascript/script.js"></script>
+</body>
+</html>
