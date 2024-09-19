@@ -80,7 +80,7 @@ function validateInputsEform() {
 async function submitScooter(event:Event){
     event.preventDefault();
     const batteryLevel = parseInt(battery.value, 10)
-    if(validateInputsForm()&&isBatteryLevelValid(batteryLevel)){
+    if(validateInputsForm()){
         let scooter:Scooter = createScooter();
         await addScooter(scooter);
         await renderPage()
@@ -98,10 +98,6 @@ function createScooter():Scooter{
     };
     clearForm()
     return newScooter
-}
-    
-function isBatteryLevelValid(battery: number): boolean {
-    return battery >= 0 && battery <= 100;
 }
 
 function clearForm(){
@@ -285,7 +281,11 @@ async function filterBy(e:Event){
             filteredScooters = scooters.filter(sc=>sc.model == value);
         }
         else if(filter===`battery`){
-            filteredScooters = scooters.filter(sc=>sc.battery === parseInt(value, 10));
+            const batteryLevel:number = parseInt(value, 10)
+            if(!isNaN(batteryLevel)){
+                console.error(`cant filter by battery level with a number`)
+            }
+            filteredScooters = scooters.filter(sc=>sc.battery === batteryLevel);
         }   
         showTable(filteredScooters);
     }
